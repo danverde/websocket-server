@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Web Sockets</title>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const ws = new WebSocket('ws://localhost:8080');
+
+      ws.onopen = (event) => {
+        console.log('opened')
+        ws.send('test');
+      }
+
+      ws.onmessage = () => {
+        console.log('on messsage');
+      }
+
+      ws.onerror = (err) => {
+        console.error(err);
+      }
+
+      console.log(ws)
+    });
+  </script>
+</head>
+
+<body>
+  <h1>Web Sockets</h1>
+</body>
+
+</html>
